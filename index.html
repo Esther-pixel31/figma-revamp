@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7Bots.ai Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  /* Header */
+  /* Header with gradient */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%); /* Blue to purple gradient */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons button {
+  padding: 15px 30px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-buttons button.video-button {
+  background-color: rgba(255,255,255,0.1); /* low opacity, blends into background */
+  color: white;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero-buttons button.video-button:hover {
+  background-color: rgba(255,255,255,0.2); /* slightly more visible on hover */
+}
+
+.hero-buttons button.secondary {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.hero-buttons button.secondary:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Stats styling */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-stats .stat {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.hero-right img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px; /* rounded edges */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  opacity: 0.9; /* slightly transparent */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-right img:hover {
+  transform: scale(1.03); /* subtle hover zoom */
+  opacity: 1; /* fully visible on hover */
+}
+
+/* Hero with same gradient */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 100px 40px;
+    background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%); /* Blue to purple gradient */
+    color: white;
+}
+
+  .logo {
+    font-weight: 700;
+    font-size: 24px;
+  }
+  nav {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex: 1;
+  }
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  .header-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  .header-buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  .signin {
+    color: #3b82f6;
+    background: white;
+  }
+  .signin:hover {
+    background: #e0e7ff;
+  }
+  .start-free {
+    background: #ffffff;
+    color: #3b82f6;
+  }
+  .start-free:hover {
+    background: #e0e7ff;
+  }
+
+  /* Hamburger for mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: #3b82f6;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    nav.active {
+      display: flex;
+    }
+    .header-buttons {
+      display: none;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* Hero Section */
+  
+  .hero-left {
+    max-width: 600px;
+    flex: 1;
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+  }
+  .hero-left h1 {
+  font-size: 56px; /* increased size */
+  font-weight: 800; /* bold */
+  line-height: 1.2; /* optional: tighter line spacing */
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+  .hero-left p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  .hero-left button {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: white;
+    color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .hero-left button:hover {
+    background-color: #e0e7ff;
+  }
+  .hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.image-container img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+  display: block;
+}
+
+/* Buttons positioned slightly outside the image */
+.image-container button {
+  position: absolute;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-top-left {
+  top: -15px;    /* negative to move above the image */
+  left: -15px;   /* negative to move outside left */
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-bottom-right {
+  bottom: -15px;  /* negative to move below the image */
+  right: -15px;   /* negative to move outside right */
+  background-color: #9333ea;
+  color: white;
+}
+
+.image-container button:hover {
+  opacity: 0.8;
+}
+
+
+
+
+  /* Animations */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-left h1 {
+      font-size: 40px;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+    .hero-left, .hero-right {
+      max-width: 100%;
+    }
+    .hero-left h1 {
+      font-size: 32px;
+    }
+    .hero-left p {
+      font-size: 16px;
+    }
+    .hero-right {
+      margin-top: 30px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">7Bots.ai</div>
+
+  <nav id="nav-links">
+    <a href="#how-it-works">How it Works</a>
+    <a href="#features">Features</a>
+    <a href="#integration">Integration</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+
+  <div class="header-buttons">
+    <a href="#signin" class="signin">Sign In</a>
+    <a href="#start-free" class="start-free">Start Free</a>
+  </div>
+
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+  <h1>Ship with confidence when requirements won't sit still</h1>
+  <p>Agentic AI that turns changing requirements into living artifacts—stories, AC, BPMN/DMN, and test cases.</p>
+  
+  <div class="hero-buttons">
+    <button onclick="document.getElementById('start-free').scrollIntoView({behavior: 'smooth'});">Get Started</button>
+    <button class="video-button" onclick="playDemoVideo()">Watch 90-sec Demo</button>
+    <button class="secondary">Book a Demo</button>
+  </div>
+  
+  <div class="hero-stats">
+    <div class="stat">−40% rework</div>
+    <div class="stat">+30% delivery speed</div>
+    <div class="stat">90% AC coverage</div>
+  </div>
+</div>
+
+
+  <div class="hero-right">
+  <div class="image-container">
+    <img src="Assets/photo-1640696085101-12085802bcf3.jpeg" alt="Hero Illustration">
+    <button class="btn-top-left">Story Generated</button>
+    <button class="btn-bottom-right">Test Synced</button>
+  </div>
+</div>
+
+</section>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    hamburger.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
