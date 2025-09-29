@@ -290,7 +290,30 @@ header {
 .image-container button:hover {
   opacity: 0.8;
 }
+.hero-buttons .video-btn {
+  background-color: rgba(255, 255, 255, 0) !important; /* force transparency */
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0);
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
+
+.video-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* slightly more visible on hover */
+}
+
+
+.play-icon {
+  font-size: 16px;
+  
+}
 
   /* Animations */
   @keyframes fadeIn {
@@ -356,9 +379,14 @@ header {
   
   <div class="hero-buttons">
   <button onclick="document.getElementById('start-free').scrollIntoView({behavior: 'smooth'});">Get Started</button>
-  <button class="secondary">Watch 90-sec Demo</button>
+
+  <button class="video-btn" onclick="playDemoVideo()">
+    <span class="play-icon">▶</span> Watch 90-sec Demo
+  </button>
+
   <a href="https://example.com/book-demo" class="book-demo-link" target="_blank">Book a Demo</a>
 </div>
+
 
   
   <div class="hero-stats">
