@@ -41,9 +41,9 @@ header {
 }
 
 .hero-buttons button.video-button {
-  background-color: rgba(255,255,255,0.1); /* low opacity, blends into background */
+  background-color: rgba(255, 255, 255, 0.025); /* low opacity, blends into background */
   color: white;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 
 .hero-buttons button.video-button:hover {
@@ -63,7 +63,7 @@ header {
 /* Stats styling */
 .hero-stats {
   display: flex;
-  gap: 40px;
+  gap: 20px; /* space between each box */
   margin-top: 20px;
   flex-wrap: wrap;
 }
@@ -71,8 +71,24 @@ header {
 .hero-stats .stat {
   font-size: 16px;
   font-weight: 600;
+  color: white;
 }
 
+.stat-box {
+  background-color: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  min-width: 140px; /* optional: keeps boxes uniform */
+  transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* slightly more visible on hover */
+}
 .hero-right img {
   max-width: 500px;
   width: 100%;
@@ -85,6 +101,18 @@ header {
 .hero-right img:hover {
   transform: scale(1.03); /* subtle hover zoom */
   opacity: 1; /* fully visible on hover */
+}
+
+.book-demo-link {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
+  padding: 12px 0; /* optional spacing to align with buttons */
+  transition: 0.3s;
+}
+
+.book-demo-link:hover {
+  opacity: 0.8;
 }
 
 /* Hero with same gradient */
@@ -128,11 +156,11 @@ header {
     transition: 0.3s;
   }
   .signin {
-    color: #3b82f6;
-    background: white;
+    color: #fcfdfe;
+    background: #7E45EC;
   }
   .signin:hover {
-    background: #e0e7ff;
+    color: black;
   }
   .start-free {
     background: #ffffff;
@@ -248,22 +276,20 @@ header {
 .btn-top-left {
   top: -15px;    /* negative to move above the image */
   left: -15px;   /* negative to move outside left */
-  background-color: #3b82f6;
+  background-color: #10B981;
   color: white;
 }
 
 .btn-bottom-right {
   bottom: -15px;  /* negative to move below the image */
   right: -15px;   /* negative to move outside right */
-  background-color: #9333ea;
-  color: white;
+  background-color: #f7f5f9;
+  color: #4F7DF3;
 }
 
 .image-container button:hover {
   opacity: 0.8;
 }
-
-
 
 
   /* Animations */
@@ -329,16 +355,18 @@ header {
   <p>Agentic AI that turns changing requirements into living artifacts—stories, AC, BPMN/DMN, and test cases.</p>
   
   <div class="hero-buttons">
-    <button onclick="document.getElementById('start-free').scrollIntoView({behavior: 'smooth'});">Get Started</button>
-    <button class="video-button" onclick="playDemoVideo()">Watch 90-sec Demo</button>
-    <button class="secondary">Book a Demo</button>
-  </div>
+  <button onclick="document.getElementById('start-free').scrollIntoView({behavior: 'smooth'});">Get Started</button>
+  <button class="secondary">Watch 90-sec Demo</button>
+  <a href="https://example.com/book-demo" class="book-demo-link" target="_blank">Book a Demo</a>
+</div>
+
   
   <div class="hero-stats">
-    <div class="stat">−40% rework</div>
-    <div class="stat">+30% delivery speed</div>
-    <div class="stat">90% AC coverage</div>
-  </div>
+  <div class="stat-box">−40% rework</div>
+  <div class="stat-box">+30% delivery speed</div>
+  <div class="stat-box">90% AC coverage</div>
+</div>
+
 </div>
 
 
